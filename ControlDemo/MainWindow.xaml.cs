@@ -43,10 +43,18 @@ public partial class MainWindow : Window
     // KeyDown event handler for numeric TextBox
     private void txtNumeric_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
     {
-        if (e.Key < System.Windows.Input.Key.D0 || e.Key > System.Windows.Input.Key.D9)
+        // Allow backspace, delete, and numeric keys
+        if (e.Key == System.Windows.Input.Key.Back || e.Key == System.Windows.Input.Key.Delete ||
+            (e.Key >= System.Windows.Input.Key.D0 && e.Key <= System.Windows.Input.Key.D9) ||
+            (e.Key >= System.Windows.Input.Key.NumPad0 && e.Key <= System.Windows.Input.Key.NumPad9)) //Test this later
         {
-            e.Handled = true;
+            // Allow the key press if it's a number or allowed control key
+            return;
         }
+
+        // If the key pressed is not numeric or allowed control, show an error
+        e.Handled = true; // Block the invalid key
+        MessageBox.Show("Only Numbers Are Allowed", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
     }
 
     // Button Click event handler for Show Time button
@@ -54,5 +62,10 @@ public partial class MainWindow : Window
     {
         DateTime currentTime = DateTime.Now;
         MessageBox.Show($"Current Time: {currentTime.ToString("HH:mm:ss")}", "Current Time");
+    }
+
+    private void sliderVolume_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+    {
+        //Add a value changed even for slider control
     }
 }

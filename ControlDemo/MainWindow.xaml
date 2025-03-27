@@ -55,7 +55,7 @@
         <RadioButton Name="rbMale" Content="Male" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,300,0,0"/>
         <RadioButton Name="rbFemale" Content="Female" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,300,0,0"/>
 
-        <Slider Name="sliderVolume" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="10,350,0,0"/>
+        <Slider Name="sliderVolume" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="10,350,0,0" ValueChanged="sliderVolume_ValueChanged"/>
 
         <ProgressBar Name="progressBar" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Height="20" Margin="10,400,0,0" Value="50"/>
 
